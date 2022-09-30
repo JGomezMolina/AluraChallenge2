@@ -1,0 +1,486 @@
+body{ 
+    
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;/*Que como nimino mida lo que mida el viiewport*/
+
+    background-image: linear-gradient(to left top, #e5e5e5, #e4e3eb, #e2e0f2, #e0def8, #dddcff);
+    font-family: 'Inter', sans-serif;
+}
+
+h1 img{
+    position: relative;
+    /* width: 6%; */
+    width: 10vh;
+    border-bottom-right-radius: 35%;
+}
+
+/*------------------PANTALLA INICIO--------*/
+
+main{
+    text-align: center; /*Alineacion horizontal del elemento dentro del main. Por definicion esta en left. Lo pasé a center.*/
+}
+#pantalla_inicio{
+    position: relative; /*Posicionar el elemento siguiendo el flujo de html.*/
+    display: inline-block;/*Permite determinar ancho y alto del bloque (inline no) y los pone en linea (block no)*/
+    margin: 150px auto;
+    height: auto;
+    width: auto;
+}
+
+#boton_iniciar{
+    display:block;/*Para que no este en linea*/
+    
+    padding: 24px; /*Margen interno*/
+    width: 300px; /*Ancho*/
+    height: 100px;/*Alto*/
+    background: #71330a;/*Fondo*/
+
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;/*Tamaño de fuente*/
+    color: #b69d9d;/*Color de texto*/
+    font-weight: 400;/*Anchura de negrita*/
+
+    border-radius: 24px;/*Borde redondo*/
+    margin-bottom: 50px;/*Separacion externa de la base*/
+
+    cursor: pointer;
+}
+
+#boton_agregar{
+    /* display: block;  No es necesario poner display block, ya que los botones ya estan uno arriba del otro. */
+
+    padding: 20px;
+    width: 280px;
+    height: 67px;
+    background: transparent;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #71440a;
+    font-weight: 500;
+
+    border: 1px solid #71290a;
+    border-radius: 24px;
+
+    cursor: pointer;
+}
+/*-----------------------------------------*/
+#pantalla_juego{
+    width: 1200px;
+    height: auto;
+    /* background:gainsboro; */
+    display: none;
+}
+
+#dibujo_ahorcado{
+    position: relative;
+    margin: 0 auto;
+    width: 300px;
+    height: 360px;
+
+    /* border: 1px solid black; */
+}
+
+#dibujo_ahorcado div:not(#palo4){
+    position: absolute;
+    height: 5px;
+    background: #71290a;
+}
+
+.base{
+    display: inline-block;
+    width: 300px;
+    bottom: 0;
+    left: 0;
+
+    border-radius: 3px;
+}
+
+#palo1{
+    display: inline-block;
+    width: 360px;
+    bottom: 0;
+    left: 80px;
+    transform-origin: 2px;/*Para que el origen sea a la izquierda y no en el centro. Asi poder rotarlo desde la punta*/
+    rotate: -90deg;
+    visibility: hidden;
+}
+#palo2{
+    display: inline-block;
+    width: 185px;
+    top:0;
+    left: 80px;
+    visibility: hidden;
+}
+#palo3{
+    display: inline-block;
+    width: 50px;
+    top: 0;
+    right: 32px;
+    transform-origin: 47px;
+    rotate: -90deg;
+    visibility: hidden;
+}
+#palo4{/*cabeza*/
+    position: absolute;
+    display: inline-block;
+    border: 5px solid #712c0a;
+    width: 60px;
+    height: 60px;
+
+    top:50px;
+    right: 0px;
+    border-radius: 50%;
+
+    visibility: hidden;
+    
+}
+#palo5{/*torso*/
+    display: inline-block;
+    width: 135px;
+    top: 115px;
+    right: 32px;
+    transform-origin: 133px;
+    rotate: -90deg;
+
+    visibility: hidden;
+}
+#palo6{
+    display: inline-block;
+    border-radius: 8px;
+    width: 70px;
+    top: 115px;
+    right: 32px;
+    transform-origin: 68px;
+    rotate: -60deg;
+
+    visibility: hidden;
+}
+#palo7{
+    display: inline-block;
+    border-radius: 8px;
+    width: 70px;
+    top: 115px;
+    right: 32px;
+    transform-origin: 68px;
+    rotate: 240deg;
+
+    visibility: hidden;
+}
+#palo8{
+    display: inline-block;
+    border-radius: 8px;
+    width: 70px;
+    top: 250px;
+    right: 32px;
+    transform-origin: 68px;
+    rotate: -60deg;
+
+    visibility: hidden;
+}
+#palo9{
+    display: inline-block;
+    border-radius: 8px;
+    width: 70px;
+    top: 250px;
+    right: 32px;
+    transform-origin: 68px;
+    rotate: 240deg;
+
+    visibility: hidden;
+}
+
+#win{
+    display:none;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    top: 100px;
+    color: rgb(40, 148, 78);
+}
+#lose{
+    display: none;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    top: 100px;
+    color: rgb(191, 21, 95);
+}
+
+
+/*letras correctas*/
+#letra_correcta{
+    margin: 50px 0 30px 0;
+    /* border: 1px solid black; */
+    position: relative;
+    
+    display: inline-block;
+    width: 100%;
+    height: 100px;
+}
+
+.contenedor_letra{
+    
+    position: relative;
+    display: inline-block;
+
+    width: 80px;
+    height: 100px;
+
+    border-bottom:5px solid #71250a;
+    border-radius: 8px;
+    margin: 0 10px;
+    
+}
+.letra{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-transform: uppercase;
+    color: #71290a;
+    font-size: 90px;
+    /* visibility: hidden; */
+    display: inline-block;
+}
+/***************************/
+/*********Letra incorrecta**********/
+#letra_incorrecta{
+    margin: 20px 0 0 0;
+    /* border: 1px solid black; */
+    position: relative;
+    
+    display: inline-block;
+    width: 60%;
+    height: auto;
+}
+
+#letra_incorrecta .letra{
+    font-size: 50px;
+    margin: 0 3px;
+    text-transform: uppercase;
+}
+
+/*--------Botonera juego-----------*/
+.botonera_juego{
+    display: inline-block;
+
+    position: absolute;
+    top: 100px;
+    left: 100px;
+
+    /* border: 1px solid black; */
+    
+    width: 300px;
+}
+
+.botonNuevoJuego{
+    display:inline-block;/*Para que este en linea*/
+    
+    padding: 12px; /*Margen interno*/
+    width: 250px; /*Ancho*/
+    height: 50px;/*Alto*/
+    background: #712e0a;/*Fondo*/
+
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;/*Tamaño de fuente*/
+    color: #FFFFFF;/*Color de texto*/
+    font-weight: 400;/*Anchura de negrita*/
+
+    border-radius: 24px;/*Borde redondo*/
+    margin-bottom: 25px;/*Separacion externa de la base*/
+
+    cursor: pointer;
+}
+
+.botonDesistir{
+    /* display: block;  No es necesario poner display block, ya que los botones ya estan uno arriba del otro. */
+
+    padding: 7px;
+    width: 200px;
+    height: 35px;
+    background: transparent;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #71480a;
+    font-weight: 600;
+
+    border: 1px solid #71290a;
+    border-radius: 24px;
+
+    cursor: pointer;
+}
+/**********************************/
+
+#pantalla_agregar{
+    
+    width: 60vh;
+    height: 80vh;
+    /* border: 1px solid black; */
+    display: none;
+
+}
+
+#campoAgegarPalabra{
+    text-align: center;
+    padding: 5px;
+    width: 350px;
+    height: 30px;
+    background: transparent;
+
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    font-size: 25px;
+    color: #71370a;
+    font-weight: 700;
+
+    border: 2px solid #711f0a;
+    border-radius: 24px;
+
+    cursor: pointer;
+}
+
+#letrasMaximas{    
+    visibility: hidden;
+    margin-top: 60px;
+    color: #71310a;
+    border: 2px solid #da5913;
+    border-radius: 24px;
+    padding: 5px;
+    font-family: 'Inter', sans-serif;
+}
+
+.agregarPalabraNueva{
+    display:inline-block;/*Para que este en linea*/
+    
+    padding: 12px; /*Margen interno*/
+    width: 250px; /*Ancho*/
+    height: 50px;/*Alto*/
+    background: #71290a;/*Fondo*/
+
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;/*Tamaño de fuente*/
+    color: #FFFFFF;/*Color de texto*/
+    font-weight: 400;/*Anchura de negrita*/
+
+    
+    border-radius: 24px;/*Borde redondo*/
+    margin-bottom: 20px;/*Separacion externa de la base*/
+
+    margin-top: 20%;
+
+    cursor: pointer;
+}
+
+
+/*Pie de pagina */
+.piePagina{
+    display: block;
+
+    margin-top: auto;
+}
+.creadoPor{
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    color: #71250a;
+    font-weight: 700;
+}
+.linkedin{
+    display: inline-block;
+    margin-right: 5px;
+}
+
+
+
+/*------------Responsive--------------*/
+
+@media screen and (max-width:450px){/*Si encuentras una pantalla hasta 480px de maximo, aplicar lo siguiente*/
+
+
+
+/*Pantalla juego---------------------------------/
+/*Contenedora de todos dentro del juego*/
+#pantalla_juego{
+    /* width: 421px; */
+    width: 300px;
+}
+/**********************/
+
+
+
+
+/*Contenedor de la palabra secreta*/
+
+#letra_correcta{
+    margin: 13px 0 2px 0;
+    
+    position: relative;
+    
+    display: inline-block;
+    width: 300px;
+    height: auto;
+}
+
+/*Borde inferior de las letras correctas*/
+.contenedor_letra{
+    width: 4vh;
+    height: 33px;
+    
+    margin: 0 2px;
+}
+
+/*letras correctas*/
+.letra{
+    font-size: 5vh;
+}
+
+/*Contenedor letras incorrectas*/
+#letra_incorrecta{
+    height: auto;
+    margin-top: 8px;
+}
+
+/*Letras incorrectas*/
+#letra_incorrecta .letra{
+    font-size: 33px;
+}
+
+/*Botonera juego*/
+.botonera_juego{
+    top: 8px;/*posicion*/
+    left: 58px;
+    
+    width: auto;
+    height: auto;
+}
+
+.botonNuevoJuego{
+    padding: 5px; /*Margen interno*/
+    width: 110px; /*Ancho*/
+    height: 35px;/*Alto*/
+    
+    font-size: 14px;/*Tamaño de fuente*/
+    
+    margin-bottom: 0;/*Separacion externa de la base*/
+}
+
+.botonDesistir{
+    display:inline-block;  
+
+    padding: 7px;
+    width: 110px;
+    height: 35px;
+    
+    font-size: 14px;
+}
+/*-----------------------------------------------*/
+
+#campoAgegarPalabra{
+    width: 250px;
+}
+
+#letrasMaximas{
+    width: 280px;
+    margin: 50px 2px 0;
+}
+
+}

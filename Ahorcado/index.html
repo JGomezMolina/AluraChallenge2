@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahorcado</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    
+
+
+    <main>
+        <div id="pantalla_inicio">
+            <button id="boton_iniciar" onclick="inicioJugar()">Iniciar Juego</button>
+            <button id="boton_agregar" onclick="inicioAgregar()">Agregar Palabra</button>
+        </div>
+
+        <div id="pantalla_juego">
+            <div id="dibujo_ahorcado">
+                <div class="base"></div> 
+
+                <div id="palo1"></div>
+                <div id="palo2"></div>
+                <div id="palo3"></div>
+                <div id="palo4"></div>
+                <div id="palo5"></div>
+                <div id="palo6"></div>
+                <div id="palo7"></div>
+                <div id="palo8"></div>
+                <div id="palo9"></div>
+
+                <p id="win">ganaste!!!</p>
+                <p id="lose">perdiste!!!</p>
+            </div>
+
+            <ul id="letra_correcta">
+                <!-- <div class="contenedor_letra"><div class="letra"></div></div>
+             -->
+            </ul>
+            
+            <ul id="letra_incorrecta">
+                <!-- <li class="letra"></li> -->
+            </ul>
+            
+            <div class="botonera_juego">
+                <button class="botonNuevoJuego" onclick="nuevoJuego()">Nuevo Juego</button>
+                <button class="botonDesistir" onclick="botonDesistir()">Desistir</button>
+            </div>
+        </div>
+
+        <div id="pantalla_agregar">
+            <input type="text" id="campoAgegarPalabra">
+            <p id="letrasMaximas">Solo se pueden poner palabras con menos de 12 letras</p>
+            <button class="agregarPalabraNueva" onclick="addPalabrita()">Agregar Palabra</button>
+            <button class = "botonDesistir" onclick="botonDesistir()">Volver</button>
+        </div>
+        
+    </main>
+    <footer class="piePagina"><a class="linkedin" href="https://www.linkedin.com/in/agustin-perea/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="30px" alt="LinkedIn - Agustin Perea"></a><p class="creadoPor">Creado por Agustin Perea </p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
